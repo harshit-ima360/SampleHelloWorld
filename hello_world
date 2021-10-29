@@ -1,1 +1,4 @@
-/usr/local/go/bin/go version
+echo 'export PATH=$PATH:/usr/local/go/bin/'  >> ~/.bash_profile
+source .bash_profile
+echo 'export PATH=$PATH:/usr/local/go/bin/'  >> ~/.bashrc
+source .bashrc
