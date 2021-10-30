@@ -1,2 +1,3 @@
-alias go="/usr/local/go/bin/go"
+echo 'export go="/usr/local/go/bin/go"' >~/.bash_profile
+source ~/.bash_profile
 
