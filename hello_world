@@ -1,3 +1,0 @@
-cd $HOME
-echo 'export PATH=$PATH:/usr/local/go/bin/' >> .bashrc
-
