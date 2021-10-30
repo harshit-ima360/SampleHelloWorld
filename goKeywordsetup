@@ -1,2 +1,5 @@
-echo 'export go="/usr/local/go/bin/go"' >~/.bashrc
+echo export PATH="/usr/local/go/bin/go:$PATH" > ~/.bashrc
 
+/bin/bash -c "source ~/.bashrc"
+
+printenv
