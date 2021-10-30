@@ -1,3 +1,2 @@
-echo 'export go="/usr/local/go/bin/go"' >~/.bash_profile
-source ~/.bash_profile
+echo 'export go="/usr/local/go/bin/go"' >~/.bashrc
 
