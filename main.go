@@ -19,7 +19,16 @@ func CheckEnvironmentVariable(VariableStr string) string {
 }
 
 func main() {
+	//Few GoCD Variable Accessing
+	fmt.Printf("\n\nCurrent Stats\nPipeline Name\t%v\n", os.Getenv("GO_PIPELINE_NAME"))
+	fmt.Println("Stage Name-\t ", os.Getenv("GO_STAGE_NAME"))
+	fmt.Println("Job Name-\t ", os.Getenv("GO_JOB_NAME"))
+
+	//Custome Var using go program
+	os.Setenv("NotValid", "New Var Through Go")
+	//Checking Existing ones
 	CheckEnvironmentVariable("SampleString")
 	CheckEnvironmentVariable("SampleString2")
-	CheckEnvironmentVariable("NotValid") //
+	CheckEnvironmentVariable("NotValid")
+
 }
