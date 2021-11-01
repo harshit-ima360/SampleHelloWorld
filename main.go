@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"log"
 	"os"
+
+	"github.com/gin-gonic/gin"
 )
 
 func CheckEnvironmentVariable(VariableStr string) string {
@@ -11,8 +13,8 @@ func CheckEnvironmentVariable(VariableStr string) string {
 		fmt.Println(valueVar, "is stored in ", VariableStr)
 		return valueVar
 	} else {
-		log.Fatal(VariableStr, " Variable not found in Envronment")
-		return ""
+		log.Println(VariableStr, " Variable not found in Envronment")
+		return "Not Found"
 
 	}
 
@@ -30,5 +32,17 @@ func main() {
 	CheckEnvironmentVariable("SampleString")
 	CheckEnvironmentVariable("SampleString2")
 	CheckEnvironmentVariable("NotValid")
+
+	router := gin.Default()
+
+	router.GET("/:stringVar", func(c *gin.Context) {
+
+		c.JSON(200, gin.H{
+			"result": CheckEnvironmentVariable(c.Param("stringVar")),
+		})
+
+	})
+
+	router.Run()
 
 }
