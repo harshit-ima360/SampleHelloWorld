@@ -1,5 +1,2 @@
-echo export PATH=$PATH:/usr/local/go/bin/go:$PATH > ~/.bashrc
-
-/bin/bash -c "source ~/.bashrc"
-
-printenv
+/bin/bash -c "printenv > envVars.txt"
+ls
