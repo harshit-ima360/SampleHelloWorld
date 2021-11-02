@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"os/exec"
 
 	"github.com/gin-gonic/gin"
 )
@@ -35,12 +36,17 @@ func main() {
 
 	router := gin.Default()
 
-	router.GET("/:stringVar", func(c *gin.Context) {
+	router.GET("/var/:stringVar", func(c *gin.Context) {
 
 		c.JSON(200, gin.H{
 			"result": CheckEnvironmentVariable(c.Param("stringVar")),
 		})
 
+	})
+
+	router.GET("/closeServer", func(c *gin.Context) {
+		defer exec.Command("docker", "stop", "helloworldenv")
+		log.Fatal("Exiting the Server")
 	})
 
 	router.Run()
