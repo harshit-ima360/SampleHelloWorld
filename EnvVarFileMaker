@@ -1,2 +1,3 @@
+#Using printenv to fetch all the environment variables and saving to a file.
 /bin/bash -c "printenv > envVars.txt"
 ls
